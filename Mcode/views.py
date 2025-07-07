@@ -15,7 +15,7 @@ def home(request):
 @api_view(['GET'])
 def hero(request):
     heroes = Hero.objects.first()
-    serializer = HeroSerializer(heroes, many=False)
+    serializer = HeroSerializer(heroes, many=False, context={'request': request})
     return Response(serializer.data)
     
 
