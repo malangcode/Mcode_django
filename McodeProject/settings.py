@@ -33,12 +33,14 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",   # React/Next.js dev
     "https://127.0.0.1:3000",  # React/Next.js dev
     "https://malangcode.pythonanywhere.com",
+    "http://127.0.0.1:5500",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:3000",
     "https://127.0.0.1:3000",
     "https://malangcode.pythonanywhere.com",
+    "http://127.0.0.1:5500",
 ]
 
 
