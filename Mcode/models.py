@@ -19,8 +19,20 @@ class TeamMembers(models.Model):
     role = models.CharField(max_length=200)
     image = models.ImageField(upload_to="team_images/") 
     bio = models.TextField()
-    skills = models.JSONField(default=list, blank=True)
-    social = models.JSONField(default=dict, blank=True)
     
     def __str__(self):
         return f"Memeber: {self.name}"
+    
+
+class TimeLine(models.Model): #this is time journey of our company in story section in about 
+    year = models.CharField(max_length=200)
+    title = models.CharField(max_length=200)
+    description = models.TextField()
+    icon = models.CharField(max_length=200)
+    order = models.IntegerField(default=0)
+    
+    def __str__(self):
+        return f"In Year: {self.year} - {self.title}"
+    
+
+       

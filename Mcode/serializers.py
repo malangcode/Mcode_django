@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import HeroStats, TeamMembers
+from .models import HeroStats, TeamMembers, TimeLine
 
 #serializers here
 
@@ -14,3 +14,9 @@ class TeamMemberSerializer(serializers.ModelSerializer):
         model = TeamMembers
         fields = '__all__'
     
+
+
+class TimeLineSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = TimeLine
+        fields = '__all__'

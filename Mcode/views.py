@@ -2,8 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .models import HeroStats, TeamMembers
-from .serializers import HeroStatsSerializer, TeamMemberSerializer
+from .models import HeroStats, TeamMembers, TimeLine
+from .serializers import HeroStatsSerializer, TeamMemberSerializer, TimeLineSerializers
 
 
 # Create your views here.
@@ -26,3 +26,8 @@ def team_members(request):
     return Response(serializer.data)
     
 
+@api_view(['GET'])
+def time_line(request):
+    timeline = TimeLine.objects.all().order_by('order')
+    serializer = TimeLineSerializers(timeline, many=True)
+    return Response(serializer.data)

@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import HeroStats, TeamMembers
+from .models import HeroStats, TeamMembers, TimeLine
+
 
 
 # Register your models here.
@@ -12,3 +13,8 @@ class HeroStatsAdmin(admin.ModelAdmin):
 class TeamMembersAdmin(admin.ModelAdmin):
     list_display = ('name', 'role')
 
+
+
+@admin.register(TimeLine)
+class TimeLineAdmin(admin.ModelAdmin):
+    list_display = ('year', 'title')
