@@ -22,7 +22,7 @@ def hero_stats(request):
 @api_view(['GET'])
 def team_members(request):
     members = TeamMembers.objects.all()
-    serializer = TeamMemberSerializer(members, many=True)
+    serializer = TeamMemberSerializer(members, many=True, context = {'request': request})
     return Response(serializer.data)
     
 
