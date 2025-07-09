@@ -12,3 +12,15 @@ class HeroStats(models.Model):
     def __str__(self):
         return self.label
     
+    
+    
+class TeamMembers(models.Model):
+    name = models.CharField(max_length=200)
+    role = models.CharField(max_length=200)
+    image = models.ImageField(upload_to="team_images/") 
+    bio = models.TextField()
+    skills = models.JSONField(default=list, blank=True)
+    social = models.JSONField(default=dict, blank=True)
+    
+    def __str__(self):
+        return f"Memeber: {self.name}"

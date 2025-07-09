@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import HeroStats
+from .models import HeroStats, TeamMembers
 
 
 # Register your models here.
@@ -8,4 +8,7 @@ class HeroStatsAdmin(admin.ModelAdmin):
     list_display = ('label', 'number', 'icon')
 
 
+@admin.register(TeamMembers)
+class TeamMembersAdmin(admin.ModelAdmin):
+    list_display = ('name', 'role')
 
