@@ -5,6 +5,7 @@ class HeroStats(models.Model):
     label = models.CharField(max_length=200)
     number = models.CharField(max_length=200)
     icon = models.CharField(max_length=200)
+    order = models.IntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
 
 
