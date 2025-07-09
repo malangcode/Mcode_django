@@ -1,13 +1,11 @@
 from django.contrib import admin
-from .models import Hero
-
-# Register your models here.
-
-
-
-@admin.register(Hero)
-class HeroAdmin(admin.ModelAdmin):
-    list_display = ('name', 'description', 'image')
+from .models import HeroStats
 
 
 # Register your models here.
+@admin.register(HeroStats)
+class HeroStatsAdmin(admin.ModelAdmin):
+    list_display = ('label', 'number', 'icon')
+
+
+

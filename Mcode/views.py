@@ -2,8 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .models import Hero
-from .serializers import HeroSerializer
+from .models import HeroStats
+from .serializers import HeroStatsSerializer
 
 
 # Create your views here.
@@ -13,9 +13,12 @@ def home(request):
 
 
 @api_view(['GET'])
-def hero(request):
-    heroes = Hero.objects.first()
-    serializer = HeroSerializer(heroes, many=False, context={'request': request})
+def hero_stats(request):
+    stats = HeroStats.objects.first()
+    serializer = HeroStatsSerializer(stats, many=False)
     return Response(serializer.data)
+
+
+
     
 

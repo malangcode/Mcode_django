@@ -1,10 +1,12 @@
 from rest_framework import serializers
-from .models import Hero
-
+from .models import HeroStats
 
 #serializers here
 
-class HeroSerializer(serializers.ModelSerializer):
+class HeroStatsSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Hero
+        model = HeroStats
         fields = '__all__'
+
+
+
