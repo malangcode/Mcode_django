@@ -14,8 +14,8 @@ def home(request):
 
 @api_view(['GET'])
 def hero_stats(request):
-    stats = HeroStats.objects.first()
-    serializer = HeroStatsSerializer(stats, many=False)
+    stats = HeroStats.objects.all()
+    serializer = HeroStatsSerializer(stats, many=True)
     return Response(serializer.data)
 
 
