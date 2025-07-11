@@ -6,4 +6,6 @@ urlpatterns = [
     path('api/stats/', views.hero_stats, name='stats'),
     path('api/team-members/', views.team_members, name='team_members'),
     path('api/time-line/', views.time_line, name='time_line'),
+    path('api/project-categories/', views.project_categories, name='project_categories'),
+    path('api/projects/', views.projects, name='projects'),
 ]

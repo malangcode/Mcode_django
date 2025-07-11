@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import HeroStats, TeamMembers, TimeLine
+from .models import HeroStats, TeamMembers, TimeLine, ProjectCategory, Project
+
 
 
 
@@ -18,3 +19,14 @@ class TeamMembersAdmin(admin.ModelAdmin):
 @admin.register(TimeLine)
 class TimeLineAdmin(admin.ModelAdmin):
     list_display = ('year', 'title')
+    
+    
+@admin.register(ProjectCategory)
+class ProjectCategoryAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name')
+
+
+@admin.register(Project)
+class ProjectAdmin(admin.ModelAdmin):
+    list_display = ('title', 'category')
+    

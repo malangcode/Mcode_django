@@ -2,8 +2,9 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .models import HeroStats, TeamMembers, TimeLine
-from .serializers import HeroStatsSerializer, TeamMemberSerializer, TimeLineSerializers
+from .models import HeroStats, TeamMembers, TimeLine, ProjectCategory, Project
+from .serializers import HeroStatsSerializer, TeamMemberSerializer, TimeLineSerializers, CategorySerializer, ProjectSerializer
+
 
 
 # Create your views here.
@@ -31,3 +32,18 @@ def time_line(request):
     timeline = TimeLine.objects.all().order_by('order')
     serializer = TimeLineSerializers(timeline, many=True)
     return Response(serializer.data)
+
+
+@api_view(['GET'])
+def project_categories(request):
+    categories = ProjectCategory.objects.all()
+    serializer = CategorySerializer(categories, many=True)
+    return Response(serializer.data)
+
+
+@api_view(['GET'])
+def projects(request):
+    projects = Project.objects.all()
+    serializer = ProjectSerializer(projects, many=True, context = {'request': request})
+    return Response(serializer.data)
+

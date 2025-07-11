@@ -34,5 +34,35 @@ class TimeLine(models.Model): #this is time journey of our company in story sect
     def __str__(self):
         return f"In Year: {self.year} - {self.title}"
     
+    
+    
+
+class ProjectCategory(models.Model): #filters
+    id = models.CharField(max_length=200, primary_key=True)
+    name = models.CharField(max_length=200)
+    
+    def __str__(self):
+        return self.name
+
+class Project(models.Model):
+    title = models.CharField( max_length=200)    
+    category = models.ForeignKey(ProjectCategory, on_delete=models.CASCADE)
+    description = models.TextField()
+    image = models.ImageField(upload_to="project_images/")
+    technologies = models.JSONField(default=list)
+    liveUrl = models.URLField(max_length=200)
+    githubUrl = models.URLField(max_length=200)
+    
+    def __str__(self):
+        return self.title
+    
+
+
+
+    
+
+
+
+
 
        
