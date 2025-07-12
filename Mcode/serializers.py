@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from .models import HeroStats, TeamMembers, TimeLine, ProjectCategory, Project, Technologies, AboutFeatures
+from .models import HeroStats, TeamMembers, TimeLine, ProjectCategory, Project, Technologies, AboutFeatures, Services
+
 
 
 #serializers here
@@ -46,4 +47,12 @@ class AboutFeaturesSerializer(serializers.ModelSerializer):
     class Meta:
         model = AboutFeatures
         fields = '__all__'
+                
+                
+                
+class ServicesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Services
+        fields = '__all__'
+                
                 

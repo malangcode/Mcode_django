@@ -10,4 +10,5 @@ urlpatterns = [
     path('api/projects/', views.projects, name='projects'),
     path('api/technologies/', views.technologies, name='technologies'),
     path('api/about-features/', views.about_features, name='about_features'),
+    path('api/services/', views.services, name='services'),
 ]
