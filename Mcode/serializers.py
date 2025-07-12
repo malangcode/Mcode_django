@@ -1,10 +1,8 @@
 from rest_framework import serializers
-from .models import HeroStats, TeamMembers, TimeLine, ProjectCategory, Project, Technologies, AboutFeatures, Services, SocialLinks
+from .models import HeroStats, TeamMembers, TimeLine, ProjectCategory, Project, Technologies, AboutFeatures, Services
 
 
-
-
-#serializers here
+# serializers here
 
 class HeroStatsSerializer(serializers.ModelSerializer):
     class Meta:
@@ -16,29 +14,27 @@ class TeamMemberSerializer(serializers.ModelSerializer):
     class Meta:
         model = TeamMembers
         fields = '__all__'
-    
 
 
 class TimeLineSerializers(serializers.ModelSerializer):
     class Meta:
         model = TimeLine
         fields = '__all__'
-        
+
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = ProjectCategory
         fields = '__all__'
 
-        
+
 class ProjectSerializer(serializers.ModelSerializer):
     category = serializers.CharField(source='category.id')   
     class Meta:
         model = Project
         fields = '__all__'
-        
-        
-        
+
+
 class TechnologiesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Technologies
@@ -48,19 +44,18 @@ class AboutFeaturesSerializer(serializers.ModelSerializer):
     class Meta:
         model = AboutFeatures
         fields = '__all__'
-                
-                
-                
+
+
 class ServicesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Services
         fields = '__all__'
-                
-                
 
-class SocialLinksSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = SocialLinks
-        fields = '__all__'
 
-                
+
+
+class ContactEmailSerializer(serializers.Serializer):
+    name = serializers.CharField()
+    email = serializers.EmailField()
+    subject = serializers.CharField()
+    message = serializers.CharField()
