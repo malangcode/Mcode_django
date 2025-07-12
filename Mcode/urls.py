@@ -11,4 +11,5 @@ urlpatterns = [
     path('api/technologies/', views.technologies, name='technologies'),
     path('api/about-features/', views.about_features, name='about_features'),
     path('api/services/', views.services, name='services'),
+    path('api/social-links/', views.social_links, name='social_links'),
 ]

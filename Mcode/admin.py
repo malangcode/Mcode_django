@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import HeroStats, TeamMembers, TimeLine, ProjectCategory, Project, Technologies, AboutFeatures, Services
+from .models import HeroStats, TeamMembers, TimeLine, ProjectCategory, Project, Technologies, AboutFeatures, Services, SocialLinks
 
 
 
@@ -44,5 +44,11 @@ class AboutFeaturesAdmin(admin.ModelAdmin):
 @admin.register(Services)
 class ServicesAdmin(admin.ModelAdmin):
     list_display = ('icon', 'title', 'price', 'deliveryTime', 'projects')
+    
+
+@admin.register(SocialLinks)
+class SocialLinksAdmin(admin.ModelAdmin):
+    list_display = ('name', 'icon', 'href', 'color')
+    
     
     

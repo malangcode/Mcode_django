@@ -90,6 +90,23 @@ class Services(models.Model):
     def __str__(self):
         return self.title
     
+
+class SocialLinks(models.Model):
+    name = models.CharField(max_length=200)
+    icon = models.CharField(max_length=200)
+    href = models.URLField(max_length=200)
+    color = models.CharField(max_length=200)
+    
+    def __str__(self):
+        return self.name
+    
+    
+    
+    
+    
+
+    
+    
     
     
     
