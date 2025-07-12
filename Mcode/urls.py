@@ -8,4 +8,6 @@ urlpatterns = [
     path('api/time-line/', views.time_line, name='time_line'),
     path('api/project-categories/', views.project_categories, name='project_categories'),
     path('api/projects/', views.projects, name='projects'),
+    path('api/technologies/', views.technologies, name='technologies'),
+    path('api/about-features/', views.about_features, name='about_features'),
 ]

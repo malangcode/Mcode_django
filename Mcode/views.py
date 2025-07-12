@@ -2,8 +2,9 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .models import HeroStats, TeamMembers, TimeLine, ProjectCategory, Project
-from .serializers import HeroStatsSerializer, TeamMemberSerializer, TimeLineSerializers, CategorySerializer, ProjectSerializer
+from .models import HeroStats, TeamMembers, TimeLine, ProjectCategory, Project, Technologies, AboutFeatures
+from .serializers import HeroStatsSerializer, TeamMemberSerializer, TimeLineSerializers, CategorySerializer, ProjectSerializer, TechnologiesSerializer, AboutFeaturesSerializer
+
 
 
 
@@ -47,3 +48,17 @@ def projects(request):
     serializer = ProjectSerializer(projects, many=True, context = {'request': request})
     return Response(serializer.data)
 
+
+@api_view(['GET'])
+def technologies(request):
+    technologies = Technologies.objects.all()
+    serializer = TechnologiesSerializer(technologies, many=True)
+    return Response(serializer.data)
+
+
+@api_view(['GET'])
+def about_features(request):
+    features = AboutFeatures.objects.all()
+    serializer = AboutFeaturesSerializer(features, many=True)
+    return Response(serializer.data)
+    

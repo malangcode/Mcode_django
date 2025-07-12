@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import HeroStats, TeamMembers, TimeLine, ProjectCategory, Project
+from .models import HeroStats, TeamMembers, TimeLine, ProjectCategory, Project, Technologies, AboutFeatures
+
 
 
 
@@ -29,4 +30,13 @@ class ProjectCategoryAdmin(admin.ModelAdmin):
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
     list_display = ('title', 'category')
+    
+
+@admin.register(Technologies)
+class TechnologiesAdmin(admin.ModelAdmin):
+    list_display = ('name', 'level', 'icon')
+    
+@admin.register(AboutFeatures)
+class AboutFeaturesAdmin(admin.ModelAdmin):
+    list_display = ('icon', 'title')    
     
