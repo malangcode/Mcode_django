@@ -10,7 +10,7 @@ from .serializers import HeroStatsSerializer, TeamMemberSerializer, TimeLineSeri
 # Create your views here.
 
 def home(request):
-    return HttpResponse("MalangCode Innovators Pvt Ltd")
+    return render(request, "index.html")
 
 
 @api_view(['GET'])
