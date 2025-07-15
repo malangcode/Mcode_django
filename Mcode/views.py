@@ -2,10 +2,9 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .models import HeroStats, TeamMembers, TimeLine, ProjectCategory, Project, Technologies, AboutFeatures, Services
-from .serializers import HeroStatsSerializer, TeamMemberSerializer, TimeLineSerializers, CategorySerializer, ProjectSerializer, TechnologiesSerializer, AboutFeaturesSerializer, ServicesSerializer
+from .models import HeroStats, TeamMembers, TimeLine, ProjectCategory, Project, Technologies, AboutFeatures, Services, Packages
+from .serializers import HeroStatsSerializer, TeamMemberSerializer, TimeLineSerializers, CategorySerializer, ProjectSerializer, TechnologiesSerializer, AboutFeaturesSerializer, ServicesSerializer, PackagesSerializer, ContactEmailSerializer
 from rest_framework import status
-from .serializers import ContactEmailSerializer
 from .email import send_contact_email
 from rest_framework.views import APIView
 
@@ -91,3 +90,11 @@ class ContactEmailAPIView(APIView):
             except Exception as e:
                 return Response({"status": "error", "message": str(e)}, status=500)
         return Response(serializer.errors, status=400)
+    
+  
+@api_view(['GET'])
+def packages(request):
+    packages = Packages.objects.all()
+    serializer = PackagesSerializer(packages, many=True)
+    return Response(serializer.data)
+    

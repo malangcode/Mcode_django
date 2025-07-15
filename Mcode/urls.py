@@ -15,4 +15,5 @@ urlpatterns = [
     path("api/about-features/", views.about_features, name="about_features"),
     path("api/services/", views.services, name="services"),
     path("api/send-email/", ContactEmailAPIView.as_view()),
+    path("api/packages/", views.packages, name="packages"),
 ]

@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from .models import HeroStats, TeamMembers, TimeLine, ProjectCategory, Project, Technologies, AboutFeatures, Services
+from .models import HeroStats, TeamMembers, TimeLine, ProjectCategory, Project, Technologies, AboutFeatures, Services, Packages
+
 
 
 # serializers here
@@ -59,3 +60,10 @@ class ContactEmailSerializer(serializers.Serializer):
     email = serializers.EmailField()
     subject = serializers.CharField()
     message = serializers.CharField()
+
+
+
+class PackagesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Packages
+        fields = '__all__'

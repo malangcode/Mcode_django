@@ -90,7 +90,19 @@ class Services(models.Model):
     def __str__(self):
         return self.title
     
-
+    
+    
+class Packages(models.Model):
+    name = models.CharField(max_length=200)
+    description = models.TextField()
+    price = models.CharField(max_length=200)
+    features = models.JSONField(default=list)
+    popular = models.BooleanField(default=False)
+    color = models.CharField(max_length=200)
+    
+    def __str__(self):
+        return self.name
+    
     
     
     
