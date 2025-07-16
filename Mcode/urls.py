@@ -2,6 +2,7 @@ from django.urls import path
 from . import views
 from .views import ContactEmailAPIView
 
+
 urlpatterns = [
     path("", views.home, name="home"),
     path("api/stats/", views.hero_stats, name="stats"),

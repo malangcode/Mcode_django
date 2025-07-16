@@ -2,7 +2,6 @@ from django.core.mail import EmailMessage
 from django.conf import settings
 
 
-
 def send_contact_email(user_name, user_email, subject, message):
     email_subject = f"New Message from MalangCode Portal of Subject: {subject}"
     email_body = f"""

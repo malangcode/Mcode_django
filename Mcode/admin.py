@@ -3,8 +3,6 @@ from .models import HeroStats, TeamMembers, TimeLine, ProjectCategory, Project, 
 
 
 
-
-
 # Register your models here.
 @admin.register(HeroStats)
 class HeroStatsAdmin(admin.ModelAdmin):
